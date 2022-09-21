@@ -12,10 +12,10 @@ User should use the `IDX pixel ID` field copied from IDX pixel created in back o
 
 For `Page view` use ID from initial `IDX pixel` code
 
-![1](https://cf.dxmcdn.com/dta/images/1 "Screenshot 1")
+![1](https://cf.dxmcdn.com/dta/images/1.png "Screenshot 1")
 
 For `Event` use ID from nesessary conversion
 
-![2](https://cf.dxmcdn.com/dta/images/2 "Screenshot 2")
+![2](https://cf.dxmcdn.com/dta/images/2.png "Screenshot 2")
 
 `Event name` field does not required, it is for future use, we suggest to fill it
