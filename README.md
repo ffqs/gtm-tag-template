@@ -1,7 +1,5 @@
 # IDX Pixel template
 
-## First step
-
 User can use two types of pixel:
 
 1. `Page View`
