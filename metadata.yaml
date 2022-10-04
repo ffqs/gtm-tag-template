@@ -15,5 +15,7 @@
 homepage: "https://terminal.id-x.co.il/"
 documentation: "https://github.com/ffqs/gtm-tag-template/README.md"
 versions:
+  - sha: 8d3e8bff3a9a69d326cbdb82693e8f0fdee2cef3
+    changeNotes: Add categories and update LICENSE
   - sha: 57cdc32c4309a2f475c86c69a89a26bec5be6990
     changeNotes: Initial IDX Pixel Version
