@@ -14,6 +14,7 @@ ___INFO___
   "version": 1,
   "securityGroups": [],
   "displayName": "IDX",
+  "categories": ["ADVERTISING", "TAG_MANAGEMENT"],
   "brand": {
     "id": "brand_idx",
     "displayName": "",
