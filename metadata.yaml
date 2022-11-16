@@ -15,7 +15,7 @@
 homepage: "https://terminal.id-x.co.il/"
 documentation: "https://github.com/ffqs/gtm-tag-template/README.md"
 versions:
-  - sha: 9322dbc8bd35847a4b150ef0c56564d86a20ee4f
+  - sha: d542a29f173908c65927001b3c85313a6f325efb
     changeNotes: Multiple pixels
   - sha: 8d3e8bff3a9a69d326cbdb82693e8f0fdee2cef3
     changeNotes: Add categories and update LICENSE
