@@ -1,4 +1,4 @@
-___TERMS_OF_SERVICE___
+﻿___TERMS_OF_SERVICE___
 
 By creating or modifying this file you agree to Google Tag Manager's Community
 Template Gallery Developer Terms of Service available at
@@ -36,7 +36,7 @@ ___TEMPLATE_PARAMETERS___
     "displayName": "Tag type",
     "radioItems": [
       {
-        "value": "URL",
+        "value": "INIT",
         "displayValue": "Page View pixel"
       },
       {
@@ -148,25 +148,28 @@ const log = require('logToConsole');
 const setInWindow = require('setInWindow');
 const injectScript = require('injectScript');
 const callInWindow = require('callInWindow');
+const copyFromWindow = require('copyFromWindow');
+const callLater = require('callLater');
 
 setInWindow('isDisableAutomaticInit', true);
 
 const IDX_GLOBAL_VARIABLE_NAME = 'IDXTag';
-const EVENT_URL = 'https://usermanager-dev-dot-idxexchange-170815.ew.r.appspot.com';
+const BASE_URL = 'https://usermanager-dev-dot-idxexchange-170815.ew.r.appspot.com';
 const SCRIPT_URL = 'https://cf.dxmcdn.com/dta/dev/header-pixel.js';
 
 const onSuccess = function () {
+  log('start');
   callInWindow(IDX_GLOBAL_VARIABLE_NAME + '.setParams');
-  
     
   switch(data.type) {
-    case 'EVENT':
-      callInWindow(IDX_GLOBAL_VARIABLE_NAME + '.sendEvent', data.pixelId, EVENT_URL);
-      log('event');
+    case 'INIT':
+      callInWindow(IDX_GLOBAL_VARIABLE_NAME, 'init', data.pixelId, { baseUrl: BASE_URL });
+      log('init');
       break;
-    case 'URL':
-      callInWindow(IDX_GLOBAL_VARIABLE_NAME + '.sendPixelRequest', data.pixelId, EVENT_URL);
-      log('url');
+
+    case 'EVENT':
+      callInWindow(IDX_GLOBAL_VARIABLE_NAME,'sendEvent', data.category, data.pixelId, { baseUrl: BASE_URL });
+      log('event');
       break;
   }
   
@@ -180,7 +183,16 @@ const onFailure = function () {
   data.gtmOnFailure();
 };
 
-injectScript(SCRIPT_URL, onSuccess, onFailure);
+const isInited = callInWindow(IDX_GLOBAL_VARIABLE_NAME + '.getIsInited');
+
+if (!isInited) {
+  log('injecting');
+  injectScript(SCRIPT_URL, onSuccess, onFailure);
+
+} else {
+  log('in already injected');
+  onSuccess();
+}
 
 
 ___WEB_PERMISSIONS___
@@ -289,7 +301,7 @@ ___WEB_PERMISSIONS___
                   },
                   {
                     "type": 8,
-                    "boolean": true
+                    "boolean": false
                   },
                   {
                     "type": 8,
@@ -328,7 +340,7 @@ ___WEB_PERMISSIONS___
                   },
                   {
                     "type": 8,
-                    "boolean": true
+                    "boolean": false
                   },
                   {
                     "type": 8,
@@ -367,7 +379,85 @@ ___WEB_PERMISSIONS___
                   },
                   {
                     "type": 8,
+                    "boolean": false
+                  },
+                  {
+                    "type": 8,
                     "boolean": true
+                  }
+                ]
+              },
+              {
+                "type": 3,
+                "mapKey": [
+                  {
+                    "type": 1,
+                    "string": "key"
+                  },
+                  {
+                    "type": 1,
+                    "string": "read"
+                  },
+                  {
+                    "type": 1,
+                    "string": "write"
+                  },
+                  {
+                    "type": 1,
+                    "string": "execute"
+                  }
+                ],
+                "mapValue": [
+                  {
+                    "type": 1,
+                    "string": "IDXTag.getIsInited"
+                  },
+                  {
+                    "type": 8,
+                    "boolean": true
+                  },
+                  {
+                    "type": 8,
+                    "boolean": false
+                  },
+                  {
+                    "type": 8,
+                    "boolean": true
+                  }
+                ]
+              },
+              {
+                "type": 3,
+                "mapKey": [
+                  {
+                    "type": 1,
+                    "string": "key"
+                  },
+                  {
+                    "type": 1,
+                    "string": "read"
+                  },
+                  {
+                    "type": 1,
+                    "string": "write"
+                  },
+                  {
+                    "type": 1,
+                    "string": "execute"
+                  }
+                ],
+                "mapValue": [
+                  {
+                    "type": 1,
+                    "string": "IDXTag"
+                  },
+                  {
+                    "type": 8,
+                    "boolean": true
+                  },
+                  {
+                    "type": 8,
+                    "boolean": false
                   },
                   {
                     "type": 8,
@@ -421,4 +511,6 @@ scenarios: []
 
 ___NOTES___
 
-Created on 19.09.2022, 11:37:54
+Created on 15/11/2022, 19:05:34
+
+
