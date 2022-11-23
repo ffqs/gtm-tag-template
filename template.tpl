@@ -1,12 +1,4 @@
-﻿___TERMS_OF_SERVICE___
-
-By creating or modifying this file you agree to Google Tag Manager's Community
-Template Gallery Developer Terms of Service available at
-https://developers.google.com/tag-manager/gallery-tos (or such other URL as
-Google may provide), as modified from time to time.
-
-
-___INFO___
+﻿___INFO___
 
 {
   "type": "TAG",
@@ -14,7 +6,10 @@ ___INFO___
   "version": 1,
   "securityGroups": [],
   "displayName": "IDX",
-  "categories": ["ADVERTISING", "TAG_MANAGEMENT"],
+  "categories": [
+    "ADVERTISING",
+    "TAG_MANAGEMENT"
+  ],
   "brand": {
     "id": "brand_idx",
     "displayName": "",
@@ -160,15 +155,24 @@ const SCRIPT_URL = 'https://cf.dxmcdn.com/dta/dev/header-pixel.js';
 const onSuccess = function () {
   log('start');
   callInWindow(IDX_GLOBAL_VARIABLE_NAME + '.setParams');
-    
+
   switch(data.type) {
     case 'INIT':
-      callInWindow(IDX_GLOBAL_VARIABLE_NAME, 'init', data.pixelId, { baseUrl: BASE_URL });
+      callInWindow(IDX_GLOBAL_VARIABLE_NAME, {
+        pixelAction: 'init',
+        pixelIds: data.pixelId,
+        gtmParams: { baseUrl: BASE_URL },
+      });
       log('init');
       break;
 
     case 'EVENT':
-      callInWindow(IDX_GLOBAL_VARIABLE_NAME,'sendEvent', data.category, data.pixelId, { baseUrl: BASE_URL });
+      callInWindow(IDX_GLOBAL_VARIABLE_NAME, {
+        pixelAction: 'sendEvent',
+        sendEvent: data.category,
+        pixelIds: data.pixelId,
+        gtmParams: { baseUrl: BASE_URL },
+      });
       log('event');
       break;
   }
