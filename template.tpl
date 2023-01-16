@@ -69,70 +69,14 @@ ___TEMPLATE_PARAMETERS___
     ]
   },
   {
-    "type": "SELECT",
+    "type": "TEXT",
     "name": "category",
     "displayName": "Event Name",
-    "macrosInSelect": false,
-    "selectItems": [
-      {
-        "value": "CHECKOUT",
-        "displayValue": "Checkout"
-      },
-      {
-        "value": "REGISTRATION",
-        "displayValue": "Registration"
-      },
-      {
-        "value": "SIGN_UP",
-        "displayValue": "Sign Up"
-      },
-      {
-        "value": "VIDEO_VIEW",
-        "displayValue": "Video View"
-      },
-      {
-        "value": "CONTENT_VIEW",
-        "displayValue": "Content View"
-      },
-      {
-        "value": "ADD_TO_CART",
-        "displayValue": "Add to Cart"
-      },
-      {
-        "value": "DOWNLOAD",
-        "displayValue": "Download"
-      },
-      {
-        "value": "SEARCH",
-        "displayValue": "Search"
-      },
-      {
-        "value": "PURCHASE",
-        "displayValue": "Purchase"
-      },
-      {
-        "value": "OTHER",
-        "displayValue": "Other"
-      }
-    ],
     "simpleValueType": true,
     "enablingConditions": [
       {
         "paramName": "type",
         "paramValue": "EVENT",
-        "type": "EQUALS"
-      }
-    ]
-  },
-  {
-    "type": "TEXT",
-    "name": "custom_category",
-    "displayName": "Custom Event Name",
-    "simpleValueType": true,
-    "enablingConditions": [
-      {
-        "paramName": "category",
-        "paramValue": "OTHER",
         "type": "EQUALS"
       }
     ],
