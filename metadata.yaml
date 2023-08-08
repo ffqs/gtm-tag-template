@@ -15,6 +15,8 @@
 homepage: "https://terminal.id-x.co.il/"
 documentation: "https://github.com/ffqs/gtm-tag-template/README.md"
 versions:
+  - sha: bff4beba7425bd3df683be14ce54d4fe1018d947
+    changeNotes: Change base url and script url to prod versions
   - sha: a1c9608472ec6540724fbb00f5b3974ab779eca1
     changeNotes: Set event name as free text
   - sha: cc09bee44a7458106f1524d7ce45b6a987b6f472
