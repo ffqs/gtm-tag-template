@@ -101,8 +101,8 @@ const callLater = require('callLater');
 setInWindow('isDisableAutomaticInit', true);
 
 const IDX_GLOBAL_VARIABLE_NAME = 'IDXTag';
-const BASE_URL = 'https://usermanager-dev-dot-idxexchange-170815.ew.r.appspot.com';
-const SCRIPT_URL = 'https://cf.dxmcdn.com/dta/dev/header-pixel.js';
+const BASE_URL = 'https://tr.dxmcdn.com';
+const SCRIPT_URL = 'https://cf.dxmcdn.com/dta/header-pixel.js';
 
 const onSuccess = function () {
   log('start');
